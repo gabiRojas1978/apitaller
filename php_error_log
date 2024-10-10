@@ -1,0 +1,78 @@
+[09-Oct-2024 18:22:43 UTC] PHP Warning:  Undefined variable $json in C:\laragon\www\apitaller\routes\routes.php on line 35
+[09-Oct-2024 18:22:43 UTC] PHP Warning:  Undefined variable $json in C:\laragon\www\apitaller\routes\routes.php on line 35
+[09-Oct-2024 18:22:43 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\apitaller\routes\routes.php on line 35
+[09-Oct-2024 18:22:43 UTC] PHP Deprecated:  http_response_code(): Passing null to parameter #1 ($response_code) of type int is deprecated in C:\laragon\www\apitaller\routes\routes.php on line 35
+[09-Oct-2024 18:26:02 UTC] PHP Warning:  Undefined variable $routeArray in C:\laragon\www\apitaller\routes\services\get.php on line 3
+[09-Oct-2024 18:26:02 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\apitaller\routes\services\get.php on line 3
+[10-Oct-2024 13:19:02 UTC] PHP Warning:  Undefined variable $linkTo in C:\laragon\www\apitaller\routes\services\get.php on line 7
+[10-Oct-2024 13:20:59 UTC] PHP Warning:  Undefined variable $linkTo in C:\laragon\www\apitaller\routes\services\get.php on line 7
+[10-Oct-2024 13:20:59 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '&select=marca_repuesto&linkTo=id_repuesto$linkTo=1' at line 1 in C:\laragon\www\apitaller\models\get.model.php:13
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(13): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('repuestos&selec...', '*')
+#2 C:\laragon\www\apitaller\routes\services\get.php(14): GetController::getData('repuestos&selec...', '*')
+#3 C:\laragon\www\apitaller\routes\routes.php(14): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 13
+[10-Oct-2024 13:24:54 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '&select=marca_repuesto&linkTo=id_repuesto$linkTo=1' at line 1 in C:\laragon\www\apitaller\models\get.model.php:13
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(13): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('repuestos&selec...', '*')
+#2 C:\laragon\www\apitaller\routes\services\get.php(14): GetController::getData('repuestos&selec...', '*')
+#3 C:\laragon\www\apitaller\routes\routes.php(14): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 13
+[10-Oct-2024 13:26:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '&select=marca_repuesto&linkTo=id_repuesto$linkTo=1' at line 1 in C:\laragon\www\apitaller\models\get.model.php:13
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(13): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('repuestos&selec...', '*')
+#2 C:\laragon\www\apitaller\routes\services\get.php(16): GetController::getData('repuestos&selec...', '*')
+#3 C:\laragon\www\apitaller\routes\routes.php(14): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 13
+[10-Oct-2024 13:27:18 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '&select=marca_repuesto&linkTo=id_repuesto&equalTo=1' at line 1 in C:\laragon\www\apitaller\models\get.model.php:13
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(13): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('repuestos&selec...', '*')
+#2 C:\laragon\www\apitaller\routes\services\get.php(16): GetController::getData('repuestos&selec...', '*')
+#3 C:\laragon\www\apitaller\routes\routes.php(14): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 13
+[10-Oct-2024 13:28:03 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '&select=marca_repuesto&linkTo=id_repuesto&equalTo=1' at line 1 in C:\laragon\www\apitaller\models\get.model.php:13
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(13): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('repuestos&selec...', '*')
+#2 C:\laragon\www\apitaller\routes\services\get.php(16): GetController::getData('repuestos&selec...', '*')
+#3 C:\laragon\www\apitaller\routes\routes.php(14): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 13
+[10-Oct-2024 13:40:41 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1049 Unknown database 'favicon' in C:\laragon\www\apitaller\models\get.model.php:13
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(13): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('favicon.ico', '*')
+#2 C:\laragon\www\apitaller\routes\services\get.php(17): GetController::getData('favicon.ico', '*')
+#3 C:\laragon\www\apitaller\routes\routes.php(14): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 13
+[10-Oct-2024 14:28:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'andmarca_repuesto='Michelin'' at line 1 in C:\laragon\www\apitaller\models\get.model.php:37
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(37): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(16): GetModel::getDataFilter('repuestos', 'marca_repuesto', 'id_repuesto,mar...', '2,Michelin')
+#2 C:\laragon\www\apitaller\routes\services\get.php(14): GetController::getDataFilter('repuestos', 'marca_repuesto', 'id_repuesto,mar...', '2,Michelin')
+#3 C:\laragon\www\apitaller\routes\routes.php(14): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 37
