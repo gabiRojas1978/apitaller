@@ -44,22 +44,6 @@ class GetController
         $return->fncResponse($response);
     }
 
-    public function fncResponse($response)
-    {
-        if (!empty($response)) {
-            $json = array(
-                'status' => 200,
-                'results' => $response
-            );
-        } else {
-            $json = array(
-                'status' => 404,
-                'results' => 'Not Found'
-            );
-        }
-        echo json_encode($json, http_response_code($json['status']));
-    }
-
     //peticion GET buscador relacionadas sin filtro
     static public function getRelDataSerch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $serch)
     {
@@ -85,5 +69,22 @@ class GetController
 
         $return = new GetController();
         $return->fncResponse($response);
+    }
+
+    public function fncResponse($response)
+    {
+        if (!empty($response)) {
+            $json = array(
+                'status' => 200,
+                'results' => $response
+            );
+        } else {
+            $json = array(
+                'status' => 404,
+                'results' => 'Not Found',
+                "Method" => "POST"
+            );
+        }
+        echo json_encode($json, http_response_code($json['status']));
     }
 }

@@ -209,3 +209,43 @@ Stack trace:
 #5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
 #6 {main}
   thrown in C:\laragon\www\apitaller\models\get.model.php on line 226
+[15-Oct-2024 18:52:05 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\laragon\www\apitaller\models\post.model.php:24
+Stack trace:
+#0 C:\laragon\www\apitaller\models\post.model.php(24): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(10): PostModel::postData('vehiculos', Array)
+#2 C:\laragon\www\apitaller\routes\services\post.php(6): PostController::postData('vehiculos', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(19): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\post.model.php on line 24
+[15-Oct-2024 18:54:59 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\laragon\www\apitaller\models\post.model.php:27
+Stack trace:
+#0 C:\laragon\www\apitaller\models\post.model.php(27): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(10): PostModel::postData('vehiculos', Array)
+#2 C:\laragon\www\apitaller\routes\services\post.php(6): PostController::postData('vehiculos', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(19): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\post.model.php on line 27
+[15-Oct-2024 19:01:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\laragon\www\apitaller\models\post.model.php:29
+Stack trace:
+#0 C:\laragon\www\apitaller\models\post.model.php(29): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(10): PostModel::postData('vehiculos', Array)
+#2 C:\laragon\www\apitaller\routes\services\post.php(6): PostController::postData('vehiculos', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(19): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\post.model.php on line 29
+[15-Oct-2024 19:08:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\laragon\www\apitaller\models\post.model.php:29
+Stack trace:
+#0 C:\laragon\www\apitaller\models\post.model.php(29): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(10): PostModel::postData('vehiculos', Array)
+#2 C:\laragon\www\apitaller\routes\services\post.php(6): PostController::postData('vehiculos', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(19): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\post.model.php on line 29
