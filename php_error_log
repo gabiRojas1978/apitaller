@@ -249,3 +249,53 @@ Stack trace:
 #5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
 #6 {main}
   thrown in C:\laragon\www\apitaller\models\post.model.php on line 29
+[15-Oct-2024 20:27:28 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''GYE823' WHERE id_vehiculo = '13'' at line 1 in C:\laragon\www\apitaller\models\put.model.php:21
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(21): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\put.controller.php(10): PutModel::putData('vehiculos', Array, '13', 'id_vehiculo')
+#2 C:\laragon\www\apitaller\routes\services\put.php(11): putController::putData('vehiculos', Array, '13', 'id_vehiculo')
+#3 C:\laragon\www\apitaller\routes\routes.php(17): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 21
+[15-Oct-2024 20:28:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''GYE823' WHERE id_vehiculo = '13'' at line 1 in C:\laragon\www\apitaller\models\put.model.php:21
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(21): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\put.controller.php(10): PutModel::putData('vehiculos', Array, '13', 'id_vehiculo')
+#2 C:\laragon\www\apitaller\routes\services\put.php(11): putController::putData('vehiculos', Array, '13', 'id_vehiculo')
+#3 C:\laragon\www\apitaller\routes\routes.php(17): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 21
+[16-Oct-2024 14:18:24 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''GYE823' WHERE id_vehiculo = '13'' at line 1 in C:\laragon\www\apitaller\models\put.model.php:21
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(21): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\put.controller.php(10): PutModel::putData('vehiculos', Array, '13', 'id_vehiculo')
+#2 C:\laragon\www\apitaller\routes\services\put.php(11): putController::putData('vehiculos', Array, '13', 'id_vehiculo')
+#3 C:\laragon\www\apitaller\routes\routes.php(17): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 21
+[16-Oct-2024 14:21:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''GYE823' WHERE id_vehiculo = '13'' at line 1 in C:\laragon\www\apitaller\models\put.model.php:22
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(22): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\put.controller.php(10): PutModel::putData('vehiculos', Array, '13', 'id_vehiculo')
+#2 C:\laragon\www\apitaller\routes\services\put.php(11): putController::putData('vehiculos', Array, '13', 'id_vehiculo')
+#3 C:\laragon\www\apitaller\routes\routes.php(17): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 22
+[16-Oct-2024 14:24:29 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''GYE823' WHERE id_vehiculo = '13'' at line 1 in C:\laragon\www\apitaller\models\put.model.php:23
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(23): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\put.controller.php(10): PutModel::putData('vehiculos', Array, '13', 'id_vehiculo')
+#2 C:\laragon\www\apitaller\routes\services\put.php(11): putController::putData('vehiculos', Array, '13', 'id_vehiculo')
+#3 C:\laragon\www\apitaller\routes\routes.php(17): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 23

@@ -14,6 +14,7 @@ if (count($routesArray) == 0) {
             include "services/get.php";
         }
         if ($_SERVER['REQUEST_METHOD'] == "PUT") {
+            include "services/put.php";
         }
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             include "services/post.php";
