@@ -20,11 +20,7 @@ if (count($routesArray) == 0) {
             include "services/post.php";
         }
         if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
-            $json = array(
-                'status' => '200',
-                'result' => 'DELETE request received'
-            );
-            echo json_encode($json, http_response_code($json['status']));
+            include "services/delete.php";
         }
     }
 }

@@ -10,7 +10,7 @@ class PutModel
 
             $set .= $key . " = :" . $key . ",";
         }
-        echo $set;
+
         $set = substr($set, 0, -1);
         $sql = "UPDATE $table SET $set WHERE $nameId = :$nameId";
 
