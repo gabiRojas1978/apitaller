@@ -19,7 +19,7 @@ class GetController
         $return->fncResponse($response);
     }
 
-    //peticion GET relacionadas sin filtro
+    //peticion GET relacionadas con filtro
     static public function getRelDataFilter($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo)
     {
         $response = GetModel::getRelDataFIlter($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo);
@@ -71,6 +71,14 @@ class GetController
         $return->fncResponse($response);
     }
 
+    //peticion GET IN con tablas relacionadas
+    static public function getRelIn($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo)
+    {
+        $response = GetModel::getRelIn($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo);
+
+        $return = new GetController();
+        $return->fncResponse($response);
+    }
     public function fncResponse($response)
     {
         if (!empty($response)) {

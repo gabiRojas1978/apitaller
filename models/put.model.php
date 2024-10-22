@@ -22,7 +22,8 @@ class PutModel
         $stmt->bindParam(":" . $nameId, $id, PDO::PARAM_STR);
         if ($stmt->execute()) {
             $response = array(
-                "result" => "Modificación exitosa"
+                "Comment" => "Modificación exitosa",
+                "result" => true
             );
             return $response;
         } else {

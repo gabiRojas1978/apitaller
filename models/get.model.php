@@ -262,4 +262,56 @@ class GetModel
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
+
+    static public function getRelIn($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo)
+    {
+
+        $filter = "";
+        if ($filterTo != null && $inTo != null) {
+            // Convertir $inTo en un array si no lo es
+            if (!is_array($inTo)) {
+                $inTo = explode(',', $inTo); // Asumimos que viene como una cadena separada por comas
+            }
+
+            // Colocar los placeholders para la cláusula IN
+            $placeholders = implode(',', array_fill(0, count($inTo), '?'));
+
+            $filter = $filterTo . " IN ($placeholders)";
+        }
+
+        $relToArray = explode(',', $rel);
+        $typeToArray = explode(',', $type);
+        $innerJoinText = '';
+        if (count($relToArray) > 1) {
+            foreach ($relToArray as $key => $value) {
+                if ($key > 0) {
+                    $innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_" . $typeToArray[$key] . "_" . $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
+                }
+            }
+            echo $filter;
+
+            $sql = "SELECT $select FROM $relToArray[0] $innerJoinText WHERE " . $filter;
+            if ($orderBy != null) {
+                $sql .= " ORDER BY $orderBy $orderMode";
+            }
+            if ($startAt != null && $endAt != null) {
+                $sql .= " LIMIT $startAt, $endAt";
+            }
+            $stmt = Connection::connect()->prepare($sql);
+            // Bindear los valores a los placeholders
+            foreach ($inTo as $key => $value) {
+                // Detectar si es número o texto
+                if (is_numeric($value)) {
+                    $stmt->bindValue(($key + 1), $value, PDO::PARAM_INT);
+                } else {
+                    $stmt->bindValue(($key + 1), $value, PDO::PARAM_STR);
+                }
+            }
+            $stmt->execute();
+        } else {
+            return null;
+        }
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
 }

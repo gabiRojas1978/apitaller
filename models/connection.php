@@ -1,5 +1,6 @@
 <?php
 
+
 class Connection
 {
     static public function infoDatabase()
@@ -27,5 +28,24 @@ class Connection
             die($e->getMessage());
         }
         return $link;
+    }
+
+    //token de validación
+    static public function jwt($id, $nombre_usuario)
+    {
+        $time = time();
+
+        $exp_time = date('Y-m-d H:i:s', $time + (60 * 60 * 8));
+
+        $token = array(
+            "iat" => $time,
+            "exp" => $exp_time,
+            "data" => [
+                "id" => $id,
+                "nombre" => $nombre_usuario
+            ]
+        );
+
+        return $token;
     }
 }

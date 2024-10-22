@@ -6,7 +6,7 @@ class DeleteModel
     static public function deleteData($table, $id, $nameId)
     {
 
-        $sql = "DELETE $table WHERE $nameId = :$nameId";
+        $sql = "DELETE from $table WHERE $nameId = :$nameId";
 
         $link = Connection::connect();
         $stmt = $link->prepare($sql);

@@ -299,3 +299,393 @@ Stack trace:
 #5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
 #6 {main}
   thrown in C:\laragon\www\apitaller\models\put.model.php on line 23
+[16-Oct-2024 18:03:12 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id_vehiculo = '13'' at line 1 in C:\laragon\www\apitaller\models\delete.model.php:14
+Stack trace:
+#0 C:\laragon\www\apitaller\models\delete.model.php(14): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\delete.controller.php(10): DeleteModel::deleteData('vehiculos', '13', 'id_vehiculo')
+#2 C:\laragon\www\apitaller\routes\services\delete.php(7): DeleteController::deleteData('vehiculos', '13', 'id_vehiculo')
+#3 C:\laragon\www\apitaller\routes\routes.php(23): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\delete.model.php on line 14
+[16-Oct-2024 18:43:22 UTC] PHP Warning:  Undefined variable $table in C:\laragon\www\apitaller\routes\services\post.php on line 9
+[16-Oct-2024 19:01:26 UTC] PHP Warning:  Undefined array key "passusuario" in C:\laragon\www\apitaller\controllers\post.controller.php on line 20
+[16-Oct-2024 19:01:26 UTC] PHP Deprecated:  crypt(): Passing null to parameter #1 ($string) of type string is deprecated in C:\laragon\www\apitaller\controllers\post.controller.php on line 20
+[16-Oct-2024 19:01:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nombre' in 'field list' in C:\laragon\www\apitaller\models\post.model.php:29
+Stack trace:
+#0 C:\laragon\www\apitaller\models\post.model.php(29): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(24): PostModel::postData('usuarios', Array)
+#2 C:\laragon\www\apitaller\routes\services\post.php(9): PostController::postRegister('usuarios', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\post.model.php on line 29
+[16-Oct-2024 19:01:45 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nombre' in 'field list' in C:\laragon\www\apitaller\models\post.model.php:29
+Stack trace:
+#0 C:\laragon\www\apitaller\models\post.model.php(29): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(24): PostModel::postData('usuarios', Array)
+#2 C:\laragon\www\apitaller\routes\services\post.php(9): PostController::postRegister('usuarios', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\post.model.php on line 29
+[17-Oct-2024 13:44:04 UTC] PHP Warning:  require_once(connection/get.model.php): Failed to open stream: No such file or directory in C:\laragon\www\apitaller\controllers\post.controller.php on line 5
+[17-Oct-2024 13:44:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'connection/get.model.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\apitaller\controllers\post.controller.php:5
+Stack trace:
+#0 C:\laragon\www\apitaller\routes\services\post.php(2): require_once()
+#1 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#3 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#4 {main}
+  thrown in C:\laragon\www\apitaller\controllers\post.controller.php on line 5
+[17-Oct-2024 13:52:49 UTC] PHP Warning:  require_once(connection/get.model.php): Failed to open stream: No such file or directory in C:\laragon\www\apitaller\controllers\post.controller.php on line 5
+[17-Oct-2024 13:52:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'connection/get.model.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\apitaller\controllers\post.controller.php:5
+Stack trace:
+#0 C:\laragon\www\apitaller\routes\services\post.php(2): require_once()
+#1 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#3 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#4 {main}
+  thrown in C:\laragon\www\apitaller\controllers\post.controller.php on line 5
+[17-Oct-2024 13:53:25 UTC] PHP Warning:  require_once(connection/connection.model.php): Failed to open stream: No such file or directory in C:\laragon\www\apitaller\controllers\post.controller.php on line 5
+[17-Oct-2024 13:53:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'connection/connection.model.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\apitaller\controllers\post.controller.php:5
+Stack trace:
+#0 C:\laragon\www\apitaller\routes\services\post.php(2): require_once()
+#1 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#3 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#4 {main}
+  thrown in C:\laragon\www\apitaller\controllers\post.controller.php on line 5
+[17-Oct-2024 13:53:47 UTC] PHP Warning:  require_once(connection/connection.php): Failed to open stream: No such file or directory in C:\laragon\www\apitaller\controllers\post.controller.php on line 5
+[17-Oct-2024 13:53:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'connection/connection.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\apitaller\controllers\post.controller.php:5
+Stack trace:
+#0 C:\laragon\www\apitaller\routes\services\post.php(2): require_once()
+#1 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#3 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#4 {main}
+  thrown in C:\laragon\www\apitaller\controllers\post.controller.php on line 5
+[17-Oct-2024 13:57:08 UTC] PHP Fatal error:  Uncaught DomainException: Algorithm not supported in C:\laragon\www\apitaller\vendor\firebase\php-jwt\src\JWT.php:243
+Stack trace:
+#0 C:\laragon\www\apitaller\vendor\firebase\php-jwt\src\JWT.php(219): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1Q...', '', 'tokenjwttoken')
+#1 C:\laragon\www\apitaller\models\connection.php(49): Firebase\JWT\JWT::encode(Array, '', 'tokenjwttoken')
+#2 C:\laragon\www\apitaller\controllers\post.controller.php(40): Connection::jwt(3, 'usuario prueba')
+#3 C:\laragon\www\apitaller\routes\services\post.php(11): PostController::postLogin('usuarios', Array)
+#4 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#6 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#7 {main}
+  thrown in C:\laragon\www\apitaller\vendor\firebase\php-jwt\src\JWT.php on line 243
+[17-Oct-2024 13:59:36 UTC] PHP Fatal error:  Uncaught DomainException: Algorithm not supported in C:\laragon\www\apitaller\vendor\firebase\php-jwt\src\JWT.php:243
+Stack trace:
+#0 C:\laragon\www\apitaller\vendor\firebase\php-jwt\src\JWT.php(219): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1Q...', '', 'tokenjwttoken')
+#1 C:\laragon\www\apitaller\models\connection.php(49): Firebase\JWT\JWT::encode(Array, '', 'tokenjwttoken')
+#2 C:\laragon\www\apitaller\controllers\post.controller.php(39): Connection::jwt(3, 'usuario prueba')
+#3 C:\laragon\www\apitaller\routes\services\post.php(11): PostController::postLogin('usuarios', Array)
+#4 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#6 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#7 {main}
+  thrown in C:\laragon\www\apitaller\vendor\firebase\php-jwt\src\JWT.php on line 243
+[17-Oct-2024 14:01:18 UTC] PHP Fatal error:  Uncaught DomainException: Algorithm not supported in C:\laragon\www\apitaller\vendor\firebase\php-jwt\src\JWT.php:243
+Stack trace:
+#0 C:\laragon\www\apitaller\vendor\firebase\php-jwt\src\JWT.php(219): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1Q...', '', 'tokenjwttoken')
+#1 C:\laragon\www\apitaller\models\connection.php(48): Firebase\JWT\JWT::encode(Array, '', 'tokenjwttoken')
+#2 C:\laragon\www\apitaller\controllers\post.controller.php(38): Connection::jwt(3, 'usuario prueba')
+#3 C:\laragon\www\apitaller\routes\services\post.php(11): PostController::postLogin('usuarios', Array)
+#4 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#6 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#7 {main}
+  thrown in C:\laragon\www\apitaller\vendor\firebase\php-jwt\src\JWT.php on line 243
+[17-Oct-2024 16:03:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'nombre_usuario' doesn't have a default value in C:\laragon\www\apitaller\models\post.model.php:29
+Stack trace:
+#0 C:\laragon\www\apitaller\models\post.model.php(29): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(16): PostModel::postData('usuarios', Array)
+#2 C:\laragon\www\apitaller\routes\services\post.php(13): PostController::postData('usuarios', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\post.model.php on line 29
+[17-Oct-2024 16:08:18 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0 = 'token_exp_1729210098' WHERE id_usuario = '3'' at line 1 in C:\laragon\www\apitaller\models\put.model.php:23
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(23): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(50): PutModel::putData('usuarios', Array, '3', 'id_usuario')
+#2 C:\laragon\www\apitaller\routes\services\post.php(11): PostController::postLogin('usuarios', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 23
+[17-Oct-2024 16:09:19 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0 = 'token_exp_1729210159' WHERE id_usuario = '3'' at line 1 in C:\laragon\www\apitaller\models\put.model.php:23
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(23): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(50): PutModel::putData('usuarios', Array, '3', 'id_usuario')
+#2 C:\laragon\www\apitaller\routes\services\post.php(11): PostController::postLogin('usuarios', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(12): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 23
+[17-Oct-2024 18:26:45 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0 = 'token_exp_1729218405' WHERE id_usuario = '3'' at line 1 in C:\laragon\www\apitaller\models\put.model.php:23
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(23): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(50): PutModel::putData('usuarios', Array, '3', 'id_usuario')
+#2 C:\laragon\www\apitaller\routes\services\post.php(11): PostController::postLogin('usuarios', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 23
+[17-Oct-2024 18:27:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '1729218453' for column 'token_exp_usuario' at row 1 in C:\laragon\www\apitaller\models\put.model.php:23
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(23): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\post.controller.php(50): PutModel::putData('usuarios', Array, '3', 'id_usuario')
+#2 C:\laragon\www\apitaller\routes\services\post.php(11): PostController::postLogin('usuarios', Array)
+#3 C:\laragon\www\apitaller\routes\routes.php(20): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 23
+[21-Oct-2024 12:10:21 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1049 Unknown database 'favicon' in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(40): GetController::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(14): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 12:33:57 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\laragon\www\apitaller\routes\routes.php on line 28
+[21-Oct-2024 12:33:58 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\laragon\www\apitaller\routes\routes.php on line 28
+[21-Oct-2024 12:34:09 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1049 Unknown database 'favicon' in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(40): GetController::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(14): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 12:35:56 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1049 Unknown database 'favicon' in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(40): GetController::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(14): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 13:17:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1049 Unknown database 'favicon' in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(40): GetController::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 17:00:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'taller.relations' doesn't exist in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('relations', '*', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(48): GetController::getData('relations', '*', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 17:16:16 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'clientes.id_vehiculo_cliente' in 'on clause' in C:\laragon\www\apitaller\models\get.model.php:46
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(46): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(16): GetModel::getRelData('clientes,vehicu...', 'cliente,vehicul...', '*', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(31): GetController::getRelData('clientes,vehicu...', 'cliente,vehicul...', '*', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 46
+[21-Oct-2024 17:16:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'clientes.id_vehiculo_cliente' in 'on clause' in C:\laragon\www\apitaller\models\get.model.php:203
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(203): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(50): GetModel::getRelDataSerch('clientes,vehicu...', 'cliente,vehicul...', '*', NULL, NULL, NULL, NULL, 'id_cliente_vehi...', '1,vehiculo')
+#2 C:\laragon\www\apitaller\routes\services\get.php(40): GetController::getRelDataSerch('clientes,vehicu...', 'cliente,vehicul...', '*', NULL, NULL, NULL, NULL, 'id_cliente_vehi...', '1,vehiculo')
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 203
+[21-Oct-2024 17:17:25 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'taller.relations' doesn't exist in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('relations', '*', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(49): GetController::getData('relations', '*', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 17:17:49 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'taller.relations' doesn't exist in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('relations', '*', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(49): GetController::getData('relations', '*', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 17:29:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'taller.relations' doesn't exist in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('relations', '*', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(49): GetController::getData('relations', '*', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 17:33:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method GetController::getRelIn() in C:\laragon\www\apitaller\routes\services\get.php:49
+Stack trace:
+#0 C:\laragon\www\apitaller\routes\routes.php(15): include()
+#1 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#3 {main}
+  thrown in C:\laragon\www\apitaller\routes\services\get.php on line 49
+[21-Oct-2024 18:01:13 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and id_vehiculo IN (3,7,9)' at line 1 in C:\laragon\www\apitaller\models\get.model.php:292
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(292): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(76): GetModel::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'id_vehiculo', '3,7,9')
+#2 C:\laragon\www\apitaller\routes\services\get.php(49): GetController::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'id_vehiculo', '3,7,9')
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 292
+[21-Oct-2024 18:01:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and id_vehiculo IN (3,7,9)' at line 1 in C:\laragon\www\apitaller\models\get.model.php:292
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(292): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(76): GetModel::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'id_vehiculo', '3,7,9')
+#2 C:\laragon\www\apitaller\routes\services\get.php(49): GetController::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'id_vehiculo', '3,7,9')
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 292
+[21-Oct-2024 18:35:47 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_cliente' in 'field list' in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('vehiculos', 'id_cliente,nomb...', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(52): GetController::getData('vehiculos', 'id_cliente,nomb...', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 18:42:50 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1049 Unknown database 'favicon' in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(52): GetController::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 19:16:39 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_cliente' in 'field list' in C:\laragon\www\apitaller\models\get.model.php:19
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(19): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(8): GetModel::getData('vehiculos', 'id_cliente,nomb...', NULL, NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\get.php(52): GetController::getData('vehiculos', 'id_cliente,nomb...', NULL, NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 19
+[21-Oct-2024 19:32:41 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AAA111' in 'where clause' in C:\laragon\www\apitaller\models\get.model.php:292
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(292): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(77): GetModel::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'nro_patente_veh...', 'AAA111,EEE555')
+#2 C:\laragon\www\apitaller\routes\services\get.php(49): GetController::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'nro_patente_veh...', 'AAA111,EEE555')
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 292
+[21-Oct-2024 19:34:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AAA111' in 'where clause' in C:\laragon\www\apitaller\models\get.model.php:292
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(292): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(77): GetModel::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'nro_patente_veh...', 'AAA111,EEE555')
+#2 C:\laragon\www\apitaller\routes\services\get.php(50): GetController::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'nro_patente_veh...', 'AAA111,EEE555')
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 292
+[21-Oct-2024 19:36:04 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AAA111' in 'where clause' in C:\laragon\www\apitaller\models\get.model.php:293
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(293): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(77): GetModel::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'nro_patente_veh...', 'AAA111,EEE555')
+#2 C:\laragon\www\apitaller\routes\services\get.php(50): GetController::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'nro_patente_veh...', 'AAA111,EEE555')
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 293
+[21-Oct-2024 19:36:29 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AAA111' in 'where clause' in C:\laragon\www\apitaller\models\get.model.php:293
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(293): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(77): GetModel::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'nro_patente_veh...', 'AAA111,EEE555')
+#2 C:\laragon\www\apitaller\routes\services\get.php(50): GetController::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'nro_patente_veh...', 'AAA111,EEE555')
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 293
+[21-Oct-2024 19:37:02 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AAA111' in 'where clause' in C:\laragon\www\apitaller\models\get.model.php:293
+Stack trace:
+#0 C:\laragon\www\apitaller\models\get.model.php(293): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\get.controller.php(77): GetModel::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'nro_patente_veh...', 'AAA111,EEE555')
+#2 C:\laragon\www\apitaller\routes\services\get.php(50): GetController::getRelIn('vehiculos,clien...', 'vehiculo,client...', '*', NULL, NULL, NULL, NULL, 'nro_patente_veh...', 'AAA111,EEE555')
+#3 C:\laragon\www\apitaller\routes\routes.php(15): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\get.model.php on line 293
+[22-Oct-2024 14:57:39 UTC] PHP Warning:  Undefined variable $data in C:\laragon\www\apitaller\routes\services\put.php on line 11
+[22-Oct-2024 14:57:39 UTC] PHP Warning:  Undefined array key "nameId" in C:\laragon\www\apitaller\routes\services\put.php on line 11
+[22-Oct-2024 14:57:39 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in C:\laragon\www\apitaller\models\put.model.php on line 9
+[22-Oct-2024 14:57:39 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in C:\laragon\www\apitaller\models\put.model.php on line 19
+[22-Oct-2024 14:57:39 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\laragon\www\apitaller\models\put.model.php:23
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(23): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\put.controller.php(10): PutModel::putData('vehiculos', NULL, '1', NULL)
+#2 C:\laragon\www\apitaller\routes\services\put.php(11): putController::putData('vehiculos', NULL, '1', NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(18): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 23
+[22-Oct-2024 14:58:31 UTC] PHP Warning:  Undefined variable $data in C:\laragon\www\apitaller\routes\services\put.php on line 11
+[22-Oct-2024 14:58:31 UTC] PHP Warning:  Undefined array key "id" in C:\laragon\www\apitaller\routes\services\put.php on line 11
+[22-Oct-2024 14:58:31 UTC] PHP Warning:  Undefined array key "nameId" in C:\laragon\www\apitaller\routes\services\put.php on line 11
+[22-Oct-2024 14:58:31 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in C:\laragon\www\apitaller\models\put.model.php on line 9
+[22-Oct-2024 14:58:31 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in C:\laragon\www\apitaller\models\put.model.php on line 19
+[22-Oct-2024 14:58:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\laragon\www\apitaller\models\put.model.php:23
+Stack trace:
+#0 C:\laragon\www\apitaller\models\put.model.php(23): PDOStatement->execute()
+#1 C:\laragon\www\apitaller\controllers\put.controller.php(10): PutModel::putData('vehiculos', NULL, NULL, NULL)
+#2 C:\laragon\www\apitaller\routes\services\put.php(11): putController::putData('vehiculos', NULL, NULL, NULL)
+#3 C:\laragon\www\apitaller\routes\routes.php(18): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\apitaller\controllers\routes.controller.php(7): include('C:\\laragon\\www\\...')
+#5 C:\laragon\www\apitaller\index.php(15): Routes_controller->index()
+#6 {main}
+  thrown in C:\laragon\www\apitaller\models\put.model.php on line 23

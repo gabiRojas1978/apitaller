@@ -5,9 +5,10 @@ $routesArray = array_filter($routesArray);
 
 if (count($routesArray) == 0) {
     $json = array(
-        'status' => '404',
-        'result' => 'Not Found'
+        'status' => '200',
+        'result' => 'Bienvenido a la api de Talleres Ortiz'
     );
+    echo json_encode($json, http_response_code($json['status']));
 } else {
     if (isset($_SERVER['REQUEST_METHOD'])) {
         if ($_SERVER['REQUEST_METHOD'] == "GET") {
