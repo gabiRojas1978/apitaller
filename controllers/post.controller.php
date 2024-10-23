@@ -49,7 +49,11 @@ class PostController
                 $update = PutModel::putData($table, $data, $response[0]->{"id_" . $suffix}, "id_" . $suffix);
 
                 if ($update["result"]) {
-                    $response = true;
+                    $response = array(
+                        'nombre' => $response[0]->{"nombre_" . $suffix},
+                        'rol' => $response[0]->{"rol_" . $suffix},
+                        'token' => $response[0]->{"token_" . $suffix},
+                    );
                 }
             } else {
                 $response = null;

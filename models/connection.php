@@ -1,6 +1,6 @@
 <?php
 
-
+require_once "get.model.php";
 class Connection
 {
     static public function infoDatabase()
@@ -47,5 +47,16 @@ class Connection
         );
 
         return $token;
+    }
+
+    static public function tokenValidate($token)
+    {
+        $tokenUser = GetModel::getDataFilter("usuarios", "token_exp_usuario", "token_usuario", $token);
+        $ahora = date('Y-m-d H:i:s', time());
+        if (!empty($tokenUser) && $ahora < $tokenUser[0]->token_exp_usuario) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

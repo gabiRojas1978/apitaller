@@ -100,7 +100,7 @@ class GetModel
     }
 
     //peticion GET con filtro
-    static public function getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt)
+    static public function getDataFilter($table, $select, $linkTo, $equalTo, $orderBy = null, $orderMode = null, $startAt = null, $endAt = null)
     {
         $linkToArray = explode(',', $linkTo);
         $equalToArray = explode(',', $equalTo);
