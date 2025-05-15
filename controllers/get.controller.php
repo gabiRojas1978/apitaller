@@ -11,9 +11,9 @@ class GetController
     }
 
     //peticion GET relacionadas sin filtro
-    static public function getRelData($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt)
+    static public function getRelData($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $distinct)
     {
-        $response = GetModel::getRelData($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt);
+        $response = GetModel::getRelData($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $distinct);
 
         $return = new GetController();
         $return->fncResponse($response);
@@ -27,6 +27,7 @@ class GetController
         $return = new GetController();
         $return->fncResponse($response);
     }
+
 
     //peticion GET con filtro
     static public function getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt)

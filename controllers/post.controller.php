@@ -52,7 +52,8 @@ class PostController
                     $response = array(
                         'nombre' => $response[0]->{"nombre_" . $suffix},
                         'rol' => $response[0]->{"rol_" . $suffix},
-                        'token' => $response[0]->{"token_" . $suffix},
+                        'token' => $jwt,
+                        'id' => $response[0]->{"id_" . $suffix},
                     );
                 }
             } else {
@@ -74,9 +75,10 @@ class PostController
         } else {
             $json = array(
                 'status' => 404,
-                'results' => 'Not Found'
+                'results' => $response
             );
         }
-        echo json_encode($json, http_response_code($json['status']));
+        http_response_code($json['status']);
+        echo json_encode($json);
     }
 }

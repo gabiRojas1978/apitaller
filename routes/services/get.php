@@ -8,6 +8,7 @@ $startAt = $_GET["startAt"] ?? null;
 $endAt = $_GET["endAt"] ?? null;
 $filterTo = $_GET["filterTo"] ?? null;
 $inTo = $_GET["inTo"] ?? null;
+$distinct = $_GET["distinct"] ?? null;
 
 
 $response = new GetController();
@@ -26,9 +27,9 @@ if (isset($_GET['linkTo']) && isset($_GET['equalTo']) && !isset($_GET['rel']) &&
     $equalTo = $_GET['equalTo'];
     $response->getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt);
 } else if (isset($_GET['rel']) && isset($_GET['type']) && $table == "relations" && !isset($_GET['linkTo']) && !isset($_GET['equalTo']) && !isset($_GET['filterTo'])) {
-    echo '2';
+    //echo '2';
     //peticion GET relacionadas sin filtro
-    $response->getRelData($_GET['rel'], $_GET['type'], $select, $orderBy, $orderMode, $startAt, $endAt);
+    $response->getRelData($_GET['rel'], $_GET['type'], $select, $orderBy, $orderMode, $startAt, $endAt, $distinct);
 } else if (isset($_GET['rel']) && isset($_GET['type']) && $table == "relations" && isset($_GET['linkTo']) && isset($_GET['equalTo'])) {
     //peticion GET relacionadas con filtro
     $response->getRelDataFilter($_GET['rel'], $_GET['type'], $select, $orderBy, $orderMode, $startAt, $endAt, $_GET['linkTo'], $_GET['equalTo']);

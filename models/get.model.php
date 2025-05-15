@@ -1,9 +1,16 @@
 <?php
 
-require_once "connection.php";
+//require_once "connection.php";
 
 class GetModel
 {
+    static private $link;
+
+    // Método para establecer la conexión
+    static public function setConnection($connection)
+    {
+        self::$link = $connection;
+    }
 
     //peticion GET sin filtro
     static public function getData($table, $select, $orderBy, $orderMode, $startAt, $endAt)
@@ -15,25 +22,26 @@ class GetModel
         if ($startAt != null && $endAt != null) {
             $sql .= " LIMIT $startAt, $endAt";
         }
-        $stmt = Connection::connect()->prepare($sql);
+        $stmt = self::$link->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
     //peticion GET sin filtro tablas relacionadas
-    static public function getRelData($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt)
+    static public function getRelData($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $distinct)
     {
         $relToArray = explode(',', $rel);
         $typeToArray = explode(',', $type);
         $innerJoinText = '';
+
         if (count($relToArray) > 1) {
             foreach ($relToArray as $key => $value) {
                 if ($key > 0) {
-                    $innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_" . $typeToArray[$key] . "_" . $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
+                    //$innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_" . $typeToArray[$key] . "_" . $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
+                    $innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_" . $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
                 }
             }
-
 
             $sql = "SELECT $select FROM $relToArray[0] $innerJoinText ";
             if ($orderBy != null) {
@@ -42,7 +50,9 @@ class GetModel
             if ($startAt != null && $endAt != null) {
                 $sql .= " LIMIT $startAt, $endAt";
             }
-            $stmt = Connection::connect()->prepare($sql);
+
+            //echo $sql;
+            $stmt = self::$link->prepare($sql);
             $stmt->execute();
 
             return $stmt->fetchAll(PDO::FETCH_CLASS);
@@ -73,7 +83,8 @@ class GetModel
         if (count($relToArray) > 1) {
             foreach ($relToArray as $key => $value) {
                 if ($key > 0) {
-                    $innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_" . $typeToArray[$key] . "_" . $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
+                    //$innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_" . $typeToArray[$key] . "_" . $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
+                    $innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_" . $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
                 }
             }
 
@@ -87,7 +98,7 @@ class GetModel
             }
 
 
-            $stmt = Connection::connect()->prepare($sql);
+            $stmt = self::$link->prepare($sql);
             foreach ($linkToArray as $key => $value) {
                 $stmt->bindParam(':' . $value, $equalToArray[$key], PDO::PARAM_STR);
             }
@@ -98,6 +109,7 @@ class GetModel
             return null;
         }
     }
+
 
     //peticion GET con filtro
     static public function getDataFilter($table, $select, $linkTo, $equalTo, $orderBy = null, $orderMode = null, $startAt = null, $endAt = null)
@@ -119,7 +131,7 @@ class GetModel
         if ($startAt != null && $endAt != null) {
             $sql .= " LIMIT $startAt, $endAt";
         }
-        $stmt = Connection::connect()->prepare($sql);
+        $stmt = self::$link->prepare($sql);
         foreach ($linkToArray as $key => $value) {
             $stmt->bindParam(':' . $value, $equalToArray[$key], PDO::PARAM_STR);
         }
@@ -148,7 +160,8 @@ class GetModel
         if ($startAt != null && $endAt != null) {
             $sql .= " LIMIT $startAt, $endAt";
         }
-        $stmt = Connection::connect()->prepare($sql);
+        //print_r($sql);
+        $stmt = self::$link->prepare($sql);
         foreach ($linkToArray as $key => $value) {
             if ($key > 0) {
                 $stmt->bindParam(':' . $value, $serchToArray[$key], PDO::PARAM_STR);
@@ -194,7 +207,7 @@ class GetModel
             }
 
 
-            $stmt = Connection::connect()->prepare($sql);
+            $stmt = self::$link->prepare($sql);
             foreach ($linkToArray as $key => $value) {
                 if ($key > 0) {
                     $stmt->bindParam(':' . $value, $serchToArray[$key], PDO::PARAM_STR);
@@ -222,7 +235,7 @@ class GetModel
         if ($startAt != null && $endAt != null) {
             $sql .= " LIMIT $startAt, $endAt";
         }
-        $stmt = Connection::connect()->prepare($sql);
+        $stmt = self::$link->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
@@ -254,7 +267,7 @@ class GetModel
             if ($startAt != null && $endAt != null) {
                 $sql .= " LIMIT $startAt, $endAt";
             }
-            $stmt = Connection::connect()->prepare($sql);
+            $stmt = self::$link->prepare($sql);
             $stmt->execute();
         } else {
             return null;
@@ -297,7 +310,7 @@ class GetModel
             if ($startAt != null && $endAt != null) {
                 $sql .= " LIMIT $startAt, $endAt";
             }
-            $stmt = Connection::connect()->prepare($sql);
+            $stmt = $stmt = self::$link->prepare($sql);
             // Bindear los valores a los placeholders
             foreach ($inTo as $key => $value) {
                 // Detectar si es número o texto

@@ -1,10 +1,23 @@
 <?php
-require_once "connection.php";
+//require_once "connection.php";
 
 class PutModel
 {
+    static private $link;
+
+    // Método para establecer la conexión
+    static public function setConnection($connection)
+    {
+        self::$link = $connection;
+    }
     static public function putData($table, $data, $id, $nameId)
     {
+        $suffix = $data['suffix'] ?? "usuario";
+
+        if (isset($data['pass_' . $suffix]) && $data['pass_' . $suffix] != null) {
+            $crypt = crypt($data['pass_' . $suffix], '$2a$07$loryfhndgctewisyr5847dfc2$');
+            $data['pass_' . $suffix] = $crypt;
+        }
         $set = "";
         foreach ($data as $key => $value) {
 
@@ -13,8 +26,8 @@ class PutModel
 
         $set = substr($set, 0, -1);
         $sql = "UPDATE $table SET $set WHERE $nameId = :$nameId";
-        $link = Connection::connect();
-        $stmt = $link->prepare($sql);
+        //$link = Connection::connect();
+        $stmt = self::$link->prepare($sql);
         foreach ($data  as $key => $value) {
             $stmt->bindParam(":" . $key, $data[$key], PDO::PARAM_STR);
         }
@@ -26,7 +39,7 @@ class PutModel
             );
             return $response;
         } else {
-            return $link->errorInfo();
+            return self::$link->errorInfo();
         }
     }
 }

@@ -3,25 +3,24 @@
 require_once "get.model.php";
 class Connection
 {
-    static public function infoDatabase()
+    static public function infoDatabase($database)
     {
         $infoDB = array(
-            "database" => "taller",
+            "database" => $database,
             "host" => "localhost",
             "username" => "root",
             "password" => ""
         );
-
         return $infoDB;
     }
 
-    static public function connect()
+    static public function connect($database)
     {
         try {
             $link = new PDO(
-                "mysql:host=" . Connection::infoDatabase()['host'] . ";dbname=" . Connection::infoDatabase()['database'],
-                Connection::infoDatabase()['username'],
-                Connection::infoDatabase()['password']
+                "mysql:host=" . Connection::infoDatabase($database)['host'] . ";dbname=" . Connection::infoDatabase($database)['database'],
+                Connection::infoDatabase($database)['username'],
+                Connection::infoDatabase($database)['password']
             );
             $link->exec("set names utf8");
         } catch (PDOException $e) {
