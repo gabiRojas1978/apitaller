@@ -11,6 +11,18 @@ class DeleteController
         $return = new DeleteController();
         $return->fncResponse($response);
     }
+    static public function deleteDataSuministro($table, $idSuministro)
+    {
+        $response = deleteModel::deleteDataSuministro($table, $idSuministro);
+        $return = new DeleteController();
+        $return->fncResponse($response);
+    }
+    static public function deleteDataLote($table, $idLote)
+    {
+        $response = deleteModel::deleteDataLote($table, $idLote);
+        $return = new DeleteController();
+        $return->fncResponse($response);
+    }
     public function fncResponse($response)
     {
         if (!empty($response)) {

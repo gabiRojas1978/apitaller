@@ -30,9 +30,9 @@ class GetController
 
 
     //peticion GET con filtro
-    static public function getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt)
+    static public function getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt, $limit = null, $greaterField = null, $greaterValue = null)
     {
-        $response = GetModel::getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt);
+        $response = GetModel::getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt, $limit, $greaterField, $greaterValue);
         $return = new GetController();
         $return->fncResponse($response);
     }
@@ -63,6 +63,22 @@ class GetController
         $return->fncResponse($response);
     }
 
+    static public function getIdDataRange($table, $select, $type, $serch, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
+    {
+        $response = GetModel::getIdDataRange($table, $select, $type, $serch, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo);
+
+        $return = new GetController();
+        $return->fncResponse($response);
+    }
+
+    static public function getIdRelDataRange($table, $select, $rel, $type, $serch, $field, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
+    {
+        $response = GetModel::getIdRelDataRange($table, $select, $rel, $type, $serch, $field, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo);
+
+        $return = new GetController();
+        $return->fncResponse($response);
+    }
+
     //peticion GET seleccion de rangos con tablas relacionadas
     static public function getRelDataRange($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
     {
@@ -80,6 +96,25 @@ class GetController
         $return = new GetController();
         $return->fncResponse($response);
     }
+
+    //peticion GET SUM
+    static public function getDataSum($table, $select, $sum, $groupBy,  $linkTo, $equalTo)
+    {
+        $response = GetModel::getDataSum($table, $select, $sum, $groupBy,  $linkTo, $equalTo);
+
+        $return = new GetController();
+        $return->fncResponse($response);
+    }
+
+    //peticion GET SUM
+    static public function getRelDataGroup($rel, $type, $select, $groupBy)
+    {
+        $response = GetModel::getRelDataGroup($rel, $type, $select, $groupBy);
+
+        $return = new GetController();
+        $return->fncResponse($response);
+    }
+
     public function fncResponse($response)
     {
         if (!empty($response)) {

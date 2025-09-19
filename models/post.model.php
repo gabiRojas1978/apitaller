@@ -25,7 +25,8 @@ class PostModel
         $sql = "INSERT INTO  $table  ($columns) VALUES ($params)";
         $stmt = self::$link->prepare($sql);
         foreach ($data  as $key => $value) {
-            $stmt->bindParam(":" . $key, $data[$key], PDO::PARAM_STR);
+            //$stmt->bindParam(":" . $key, $data[$key], PDO::PARAM_STR);
+            $stmt->bindValue(":" . $key, $value, PDO::PARAM_STR);
         }
         if ($stmt->execute()) {
             try {
@@ -35,14 +36,17 @@ class PostModel
             }
             $response = array(
                 "lastId" => $lastId,
-                "result" => "Carga exitosa"
+                "result" => "Carga exitosa",
+                "data" => $data
             );
             return $response;
         } else {
-            //return self::$link->errorInfo();
+            $errorInfo = $stmt->errorInfo();
             return array(
-                "lastId" => null,
-                "result" => "Error en la carga: " . $stmt->errorInfo()
+                "lastId" => 0,
+                "result" => "Error en la carga",
+                "error" => $errorInfo[2], // Mensaje de error de la base de datos
+                "data" => $data
             );
         }
     }
