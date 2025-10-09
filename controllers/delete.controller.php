@@ -5,6 +5,12 @@ require_once "models/delete.model.php";
 class DeleteController
 {
 
+    static public function deleteDataGeneric($table, $id, $nameId)
+    {
+        $response = deleteModel::deleteDataGeneric($table, $id, $nameId);
+        $return = new DeleteController();
+        $return->fncResponse($response);
+    }
     static public function deleteData($table, $id, $idSE, $nameId, $nameIdSE)
     {
         $response = deleteModel::deleteData($table, $id, $idSE, $nameId, $nameIdSE);

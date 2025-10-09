@@ -7,7 +7,7 @@ class Connection
     {
         $infoDB = array(
             "database" => $database,
-            "host" => "localhost",
+            "host" => "127.0.0.1",
             "username" => "root",
             "password" => ""
         );
@@ -17,12 +17,19 @@ class Connection
     static public function connect($database)
     {
         try {
+            $info = Connection::infoDatabase($database);
             $link = new PDO(
-                "mysql:host=" . Connection::infoDatabase($database)['host'] . ";dbname=" . Connection::infoDatabase($database)['database'],
-                Connection::infoDatabase($database)['username'],
-                Connection::infoDatabase($database)['password']
+                "mysql:host={$info['host']};dbname={$info['database']};charset=utf8",
+                $info['username'],
+                $info['password'],
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+                    PDO::ATTR_PERSISTENT => false,
+                    PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true
+                ]
             );
-            $link->exec("set names utf8");
+            //$link->exec("set names utf8");
         } catch (PDOException $e) {
             die($e->getMessage());
         }

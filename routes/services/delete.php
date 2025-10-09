@@ -10,4 +10,6 @@ if (isset($_GET['SE'])) {
     $response->deleteDataSuministro($table, $_GET['idSuministro']);
 } else if (isset($_GET['idLote'])) {
     $response->deleteDataLote($table, $_GET['idLote']);
+} else {
+    $response->deleteDataGeneric($table, $_GET['id'], $_GET['nameId']);
 }

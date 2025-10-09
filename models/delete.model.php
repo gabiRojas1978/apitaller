@@ -10,6 +10,24 @@ class DeleteModel
     {
         self::$link = $connection;
     }
+    static public function deleteDataGeneric($table, $id, $nameId)
+    {
+
+        $sql = "DELETE from $table WHERE $nameId = :$nameId";
+
+        //$link = Connection::connect();
+        $stmt = self::$link->prepare($sql);
+        $stmt->bindParam(":" . $nameId, $id, PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            $response = array(
+                "status" => "200",
+                "result" => "Eliminación exitosa"
+            );
+            return $response;
+        } else {
+            return self::$link->errorInfo();
+        }
+    }
     static public function deleteData($table, $id, $idSE, $nameId, $nameIdSE)
     {
 
