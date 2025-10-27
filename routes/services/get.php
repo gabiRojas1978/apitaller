@@ -34,7 +34,7 @@ if (isset($_GET['linkTo']) && isset($_GET['equalTo']) && !isset($_GET['sum']) &&
     $response->getRelData($_GET['rel'], $_GET['type'], $select, $orderBy, $orderMode, $startAt, $endAt, $distinct);
 } else if (isset($_GET['rel']) && isset($_GET['type']) && $table == "relations" && isset($_GET['linkTo']) && isset($_GET['equalTo'])) {
     //peticion GET relacionadas con filtro    
-    $response->getRelDataFilter($_GET['rel'], $_GET['type'], $select, $orderBy, $orderMode, $startAt, $endAt, $_GET['linkTo'], $_GET['equalTo'], $_GET['groupBy']);
+    $response->getRelDataFilter($_GET['rel'], $_GET['type'], $select, $orderBy, $orderMode, $startAt, $endAt, $_GET['linkTo'], $_GET['equalTo'], $groupBy);
 } else if (!isset($_GET['rel']) && !isset($_GET['type']) && isset($_GET['linkTo']) && isset($_GET['serch'])) {
     //peticion GET serch
     $response->getDataSerch($table, $select, $_GET['linkTo'], $_GET['serch'], $orderBy, $orderMode, $startAt, $endAt);
