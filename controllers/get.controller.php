@@ -20,9 +20,9 @@ class GetController
     }
 
     //peticion GET relacionadas con filtro
-    static public function getRelDataFilter($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo)
+    static public function getRelDataFilter($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo, $groupBy = null)
     {
-        $response = GetModel::getRelDataFIlter($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo);
+        $response = GetModel::getRelDataFilter($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo, $groupBy);
 
         $return = new GetController();
         $return->fncResponse($response);

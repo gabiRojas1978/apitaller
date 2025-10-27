@@ -62,7 +62,7 @@ class GetModel
     }
 
     //peticion GET con filtro tablas relacionadas
-    static public function getRelDataFilter($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo)
+    static public function getRelDataFilter($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo, $groupBy = null)
     {
 
         //filtros
@@ -97,7 +97,9 @@ class GetModel
             if ($startAt != null && $endAt != null) {
                 $sql .= " LIMIT $startAt, $endAt";
             }
-
+            if ($groupBy) {
+                $sql .= " GROUP BY $groupBy";
+            }
             //echo $sql;
             $stmt = self::$link->prepare($sql);
             foreach ($linkToArray as $key => $value) {
