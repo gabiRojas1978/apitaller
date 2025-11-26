@@ -28,7 +28,13 @@ class GetController
         $return->fncResponse($response);
     }
 
-
+    //peticion GET con filtro
+    static public function getDataFilterGreater($table, $select, $orderBy, $orderMode, $startAt, $endAt, $limit = null, $greaterField = null, $greaterValue = null, $field = null, $search = null)
+    {
+        $response = GetModel::getDataFilterGreater($table, $select, $orderBy, $orderMode, $startAt, $endAt, $limit, $greaterField, $greaterValue, $field, $search);
+        $return = new GetController();
+        $return->fncResponse($response);
+    }
     //peticion GET con filtro
     static public function getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt, $limit = null, $greaterField = null, $greaterValue = null)
     {
@@ -37,18 +43,18 @@ class GetController
         $return->fncResponse($response);
     }
 
-    //peticion GET serch
-    static public function getDataSerch($table, $select, $linkTo, $serch, $orderBy, $orderMode, $startAt, $endAt)
+    //peticion GET search
+    static public function getDatasearch($table, $select, $linkTo, $search, $orderBy, $orderMode, $startAt, $endAt)
     {
-        $response = GetModel::getDataSerch($table, $select, $linkTo, $serch, $orderBy, $orderMode, $startAt, $endAt);
+        $response = GetModel::getDatasearch($table, $select, $linkTo, $search, $orderBy, $orderMode, $startAt, $endAt);
         $return = new GetController();
         $return->fncResponse($response);
     }
 
     //peticion GET buscador relacionadas sin filtro
-    static public function getRelDataSerch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $serch)
+    static public function getRelDatasearch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $search)
     {
-        $response = GetModel::getRelDataSerch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $serch);
+        $response = GetModel::getRelDatasearch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $search);
 
         $return = new GetController();
         $return->fncResponse($response);
@@ -63,17 +69,25 @@ class GetController
         $return->fncResponse($response);
     }
 
-    static public function getIdDataRange($table, $select, $type, $serch, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
+    static public function getIdDataRange($table, $select, $type, $search, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
     {
-        $response = GetModel::getIdDataRange($table, $select, $type, $serch, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo);
+        $response = GetModel::getIdDataRange($table, $select, $type, $search, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo);
 
         $return = new GetController();
         $return->fncResponse($response);
     }
 
-    static public function getIdRelDataRange($table, $select, $rel, $type, $serch, $field, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
+    static public function getRelDatasearchGreater($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $field, $search, $greaterField, $greaterValue)
     {
-        $response = GetModel::getIdRelDataRange($table, $select, $rel, $type, $serch, $field, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo);
+        $response = GetModel::getRelDatasearchGreater($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $field, $search, $greaterField, $greaterValue);
+
+        $return = new GetController();
+        $return->fncResponse($response);
+    }
+
+    static public function getIdRelDataRange($table, $select, $rel, $type, $search, $field, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
+    {
+        $response = GetModel::getIdRelDataRange($table, $select, $rel, $type, $search, $field, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo);
 
         $return = new GetController();
         $return->fncResponse($response);
@@ -107,9 +121,36 @@ class GetController
     }
 
     //peticion GET SUM
-    static public function getRelDataGroup($rel, $type, $select, $groupBy)
-    {
-        $response = GetModel::getRelDataGroup($rel, $type, $select, $groupBy);
+    static public function getRelDataGroup(
+        $rel,
+        $type,
+        $select,
+        $groupBy,
+        $field,
+        $search,
+        $orderBy,
+        $orderMode,
+        $startAt,
+        $endAt,
+        $where,
+        $having,
+        $havingValue
+    ) {
+        $response = GetModel::getRelDataGroup(
+            $rel,
+            $type,
+            $select,
+            $groupBy,
+            $field,
+            $search,
+            $orderBy,
+            $orderMode,
+            $startAt,
+            $endAt,
+            $where,
+            $having,
+            $havingValue
+        );
 
         $return = new GetController();
         $return->fncResponse($response);

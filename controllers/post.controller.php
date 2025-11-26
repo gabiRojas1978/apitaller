@@ -39,12 +39,19 @@ class PostController
         if (!empty($response)) {
             $crypt = crypt($data['pass_' . $suffix], '$2a$07$loryfhndgctewisyr5847dfc2$');
             if ($response[0]->{"pass_" . $suffix} == $crypt) {
-                $token = Connection::jwt($response[0]->{"id_" . $suffix}, $response[0]->{"nombre_" . $suffix});
-                $jwt = JWT::encode($token, 'tokenjwttoken', "HS256");
+                //$token = Connection::jwt($response[0]->{"id_" . $suffix}, $response[0]->{"nombre_" . $suffix});
+                $payload = [
+                    "sub" => $response[0]->{"id_" . $suffix},           // ID del usuario
+                    "nombre" => $response[0]->{"nombre_" . $suffix},    // Nombre
+                    "rol" => $response[0]->{"rol"} ?? "usuario",        // Rol (opcional)
+                    "iat" => date('Y-m-d H:i:s', time()),                                    // Emitido en
+                    "exp" => date('Y-m-d H:i:s', time() + (3600 * 24 * 7))                   // Expira en 7 días
+                ];
+                $jwt = JWT::encode($payload, 'tokenjwttoken', "HS256");
                 //actualizar token usuario
                 $data = array(
                     "token_" . $suffix => $jwt,
-                    "token_exp_" . $suffix => $token["exp"],
+                    "token_exp_" . $suffix => $payload["exp"],
                 );
                 $update = PutModel::putData($table, $data, $response[0]->{"id_" . $suffix}, "id_" . $suffix);
 
@@ -65,8 +72,10 @@ class PostController
         $return = new PostController();
         $return->fncResponse($response);
     }
+
     public function fncResponse($response)
     {
+        $response = $response ?? null;
         if (!empty($response)) {
             $json = array(
                 'status' => 200,

@@ -11,6 +11,15 @@ class putController
         $return = new putController();
         $return->fncResponse($response);
     }
+
+    static public function putDataSet($table, $set, $id, $nameId)
+    {
+        //echo "hola";
+        $response = putModel::putDataSet($table, $set, $id, $nameId);
+        $return = new putController();
+        $return->fncResponse($response);
+    }
+
     public function fncResponse($response)
     {
         if (!empty($response)) {
@@ -25,5 +34,6 @@ class putController
             );
         }
         echo json_encode($json, http_response_code($json['status']));
+        //echo "hola";
     }
 }

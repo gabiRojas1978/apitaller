@@ -6,12 +6,12 @@ require_once 'models/delete.model.php';
 require_once 'models/get.model.php';
 $routesArray = explode('/', $_SERVER['REQUEST_URI']);
 $routesArray = array_filter($routesArray);
-$databaseName = $_SERVER['HTTP_X_SOURCE'] ?? 'almafit';
+$databaseName = $_SERVER['HTTP_X_SOURCE'];
 // Obtén todos los encabezados de la solicitud
 $headers = getallheaders();
 $token = '';
 if (count($routesArray) == 0) {
-    echo 'Bienvenido a la api de Gabriel Rojas';
+    echo 'Bienvenido a la api de GR Sistemas';
     return;
 }
 $login = false;

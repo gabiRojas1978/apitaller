@@ -113,10 +113,39 @@ class GetModel
         }
     }
 
+    //peticion GET con filtro
+    static public function getDataFilterGreater($table, $select, $orderBy = null, $orderMode = null, $startAt = null, $endAt = null, $limit = null, $greaterField = null, $greaterValue = null, $field = null, $search = null)
+    {
+
+        if (($field !== null && $search !== null)) {
+            $and = " AND $field = $search ";
+        } else {
+            $and = "";
+        }
+
+        $sql = "SELECT $select FROM  $table where  $greaterField > $greaterValue" . $and;
+
+        if ($orderBy != null) {
+            $sql .= " ORDER BY $orderBy $orderMode";
+        }
+        if ($startAt != null && $endAt != null) {
+            $sql .= " LIMIT $startAt, $endAt";
+        }
+        if ($limit != null) {
+            $sql .= " LIMIT $limit";
+        }
+        $stmt = self::$link->prepare($sql);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
+
 
     //peticion GET con filtro
     static public function getDataFilter($table, $select, $linkTo, $equalTo, $orderBy = null, $orderMode = null, $startAt = null, $endAt = null, $limit = null, $greaterField = null, $greaterValue = null)
     {
+
         $linkToArray = explode(',', $linkTo);
         $equalToArray = explode(',', $equalTo);
         $linkToParams = '';
@@ -127,6 +156,7 @@ class GetModel
                 }
             }
         }
+
         $sql = "SELECT $select FROM  $table where $linkToArray[0] = :$linkToArray[0] $linkToParams";
         if ($greaterField !== null && $greaterValue !== null) {
             $sql .= " AND $greaterField > $greaterValue ";
@@ -150,10 +180,10 @@ class GetModel
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    static public function getDataSerch($table, $select, $linkTo, $serch, $orderBy, $orderMode, $startAt, $endAt)
+    static public function getDatasearch($table, $select, $linkTo, $search, $orderBy, $orderMode, $startAt, $endAt)
     {
         $linkToArray = explode(',', $linkTo);
-        $serchToArray = explode(',', $serch);
+        $searchToArray = explode(',', $search);
         $linkToParams = '';
         if (count($linkToArray) > 1) {
             foreach ($linkToArray as $key => $value) {
@@ -162,7 +192,7 @@ class GetModel
                 }
             }
         }
-        $sql = "SELECT $select FROM $table where $linkToArray[0] like '%$serchToArray[0]%' $linkToParams ";
+        $sql = "SELECT $select FROM $table where $linkToArray[0] like '%$searchToArray[0]%' $linkToParams ";
         if ($orderBy != null) {
             $sql .= " ORDER BY $orderBy $orderMode";
         }
@@ -173,7 +203,7 @@ class GetModel
         $stmt = self::$link->prepare($sql);
         foreach ($linkToArray as $key => $value) {
             if ($key > 0) {
-                $stmt->bindParam(':' . $value, $serchToArray[$key], PDO::PARAM_STR);
+                $stmt->bindParam(':' . $value, $searchToArray[$key], PDO::PARAM_STR);
             }
         }
         $stmt->execute();
@@ -181,11 +211,11 @@ class GetModel
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
     //peticion GET busqueda con filtro tablas relacionadas
-    static public function getRelDataSerch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $serch)
+    static public function getRelDatasearch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $search)
     {
         //filtros
         $linkToArray = explode(',', $linkTo);
-        $serchToArray = explode(',', $serch);
+        $searchToArray = explode(',', $search);
         $linkToParams = '';
         if (count($linkToArray) > 1) {
             foreach ($linkToArray as $key => $value) {
@@ -209,7 +239,7 @@ class GetModel
             }
 
 
-            $sql = "SELECT $select FROM $relToArray[0] $innerJoinText where $linkToArray[0] like '%$serchToArray[0]%' $linkToParams ";
+            $sql = "SELECT $select FROM $relToArray[0] $innerJoinText where $linkToArray[0] like '%$searchToArray[0]%' $linkToParams ";
             if ($orderBy != null) {
                 $sql .= " ORDER BY $orderBy $orderMode";
             }
@@ -221,7 +251,7 @@ class GetModel
             $stmt = self::$link->prepare($sql);
             foreach ($linkToArray as $key => $value) {
                 if ($key > 0) {
-                    $stmt->bindParam(':' . $value, $serchToArray[$key], PDO::PARAM_STR);
+                    $stmt->bindParam(':' . $value, $searchToArray[$key], PDO::PARAM_STR);
                 }
             }
             $stmt->execute();
@@ -252,13 +282,13 @@ class GetModel
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    static public function getIdDataRange($table, $select, $type, $serch, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
+    static public function getIdDataRange($table, $select, $type, $search, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
     {
         $filter = "";
         if ($filterTo != null && $inTo != null) {
             $filter = "and " . $filterTo . " IN ($inTo) ";
         }
-        $sql = "SELECT $select FROM $table WHERE $type=$serch and $linkTo BETWEEN '$between1' AND '$between2'" . $filter;
+        $sql = "SELECT $select FROM $table WHERE $type=$search and $linkTo BETWEEN '$between1' AND '$between2'" . $filter;
         if ($orderBy != null) {
             $sql .= " ORDER BY $orderBy $orderMode";
         }
@@ -287,7 +317,7 @@ class GetModel
         if (count($relToArray) > 1) {
             foreach ($relToArray as $key => $value) {
                 if ($key > 0) {
-                    $innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_" . $typeToArray[$key] . "_" . $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
+                    $innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_" .  $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
                 }
             }
 
@@ -307,7 +337,36 @@ class GetModel
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    static public function getIdRelDataRange($table, $select, $rel, $type, $serch, $field, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
+    static public function getRelDatasearchGreater($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $field, $search, $greaterField, $greaterValue)
+    {
+        $relToArray = explode(',', $rel);
+        $typeToArray = explode(',', $type);
+        $innerJoinText = '';
+        if (count($relToArray) > 1) {
+            foreach ($relToArray as $key => $value) {
+                if ($key > 0) {
+                    $innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_"  . $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
+                }
+            }
+
+            $sql = "SELECT $select FROM $relToArray[0] $innerJoinText WHERE $field=$search and " . $greaterField . " > " . $greaterValue;
+            //echo $sql;
+            if ($orderBy != null) {
+                $sql .= " ORDER BY $orderBy $orderMode";
+            }
+            if ($startAt != null && $endAt != null) {
+                $sql .= " LIMIT $startAt, $endAt";
+            }
+            $stmt = self::$link->prepare($sql);
+            $stmt->execute();
+        } else {
+            return null;
+        }
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    static public function getIdRelDataRange($table, $select, $rel, $type, $search, $field, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $between1, $between2, $filterTo, $inTo)
     {
         $filter = "";
         if ($filterTo != null && $inTo != null) {
@@ -324,7 +383,7 @@ class GetModel
                 }
             }
 
-            $sql = "SELECT $select FROM $relToArray[0] $innerJoinText WHERE $field=$serch and date($linkTo) BETWEEN '$between1' AND '$between2'" . $filter;
+            $sql = "SELECT $select FROM $relToArray[0] $innerJoinText WHERE $field=$search and date($linkTo) BETWEEN '$between1' AND '$between2'" . $filter;
 
             if ($orderBy != null) {
                 $sql .= " ORDER BY $orderBy $orderMode";
@@ -366,7 +425,7 @@ class GetModel
                     $innerJoinText .= " INNER JOIN " . $value . " ON " . $relToArray[0] . ".id_" . $typeToArray[$key] . "_" . $typeToArray[0] . "=" . $value . ".id_" . $typeToArray[$key] . " ";
                 }
             }
-            echo $filter;
+            //echo $filter;
 
             $sql = "SELECT $select FROM $relToArray[0] $innerJoinText WHERE " . $filter;
             if ($orderBy != null) {
@@ -416,12 +475,16 @@ class GetModel
         $rel,           // Ej: "lotes,productos"
         $type,          // Ej: "lote,producto"
         $select,        // Ej: "lotes.codigo_lote, productos.nombre_producto, SUM(lotes.cantidad_lote) AS total_cantidad"
-        $groupBy,       // Ej: "lotes.codigo_lote, productos.nombre_producto"
+        $groupBy,
+        $field,
+        $search,
         $orderBy = null,
         $orderMode = null,
         $startAt = null,
         $endAt = null,
-        $where = null   // Ej: "lotes.estado = 1"
+        $where = null,
+        $having = null,
+        $havingValue = null
     ) {
         $relToArray = explode(',', $rel);
         $typeToArray = explode(',', $type);
@@ -438,9 +501,10 @@ class GetModel
         }
 
         $sql = "SELECT $select FROM " . $relToArray[0] . $innerJoinText;
-        if ($where) {
-            $sql .= " WHERE $where";
+        if ($field && $search) {
+            $sql .= " WHERE $field = '$search' ";
         }
+
         if ($groupBy) {
             $sql .= " GROUP BY $groupBy";
         }
@@ -453,7 +517,10 @@ class GetModel
         if ($startAt !== null && $endAt !== null) {
             $sql .= " LIMIT $startAt, $endAt";
         }
-
+        if ($having) {
+            $sql .= " HAVING $having > '$havingValue' ";
+        }
+        //echo $sql;
         $stmt = self::$link->prepare($sql);
         $stmt->execute();
 

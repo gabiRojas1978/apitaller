@@ -42,4 +42,28 @@ class PutModel
             return self::$link->errorInfo();
         }
     }
+    static public function putDataSet($table, $set, $id, $nameId)
+    {
+
+        //$set = substr($set, 0, -1);
+        $sql = "UPDATE $table SET $set WHERE $nameId = :$nameId";
+
+        //$link = Connection::connect();
+        $stmt = self::$link->prepare($sql);
+
+        $stmt->bindParam(":" . $nameId, $id, PDO::PARAM_STR);
+        // echo $sql;
+        // return;
+        if ($stmt->execute()) {
+            $rows = $stmt->rowCount();
+            $response = array(
+                "Comment" => "Modificación exitosa",
+                "result" => true,
+                "rows_affected" => $rows
+            );
+            return $response;
+        } else {
+            return self::$link->errorInfo();
+        }
+    }
 }
