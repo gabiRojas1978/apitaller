@@ -314,6 +314,7 @@ class GetModel
         $relToArray = explode(',', $rel);
         $typeToArray = explode(',', $type);
         $innerJoinText = '';
+
         if (count($relToArray) > 1) {
             foreach ($relToArray as $key => $value) {
                 if ($key > 0) {
@@ -328,13 +329,14 @@ class GetModel
             if ($startAt != null && $endAt != null) {
                 $sql .= " LIMIT $startAt, $endAt";
             }
+            //echo $sql;
             $stmt = self::$link->prepare($sql);
             $stmt->execute();
+            //print_r($stmt->fetchAll(PDO::FETCH_CLASS));
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
         } else {
             return null;
         }
-
-        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
     static public function getRelDatasearchGreater($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $field, $search, $greaterField, $greaterValue)
@@ -362,7 +364,6 @@ class GetModel
         } else {
             return null;
         }
-
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
@@ -391,6 +392,7 @@ class GetModel
             if ($startAt != null && $endAt != null) {
                 $sql .= " LIMIT $startAt, $endAt";
             }
+            //echo $sql;
             $stmt = self::$link->prepare($sql);
             $stmt->execute();
         } else {
