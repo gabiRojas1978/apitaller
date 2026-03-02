@@ -15,7 +15,6 @@ class PostModel
         $columns = "";
         $params = "";
 
-
         foreach ($data as $key => $value) {
             $columns .= $key . ",";
             $params .= ":" . $key . ",";

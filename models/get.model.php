@@ -232,7 +232,7 @@ class GetModel
         if (count($relToArray) > 1) {
             foreach ($relToArray as $key => $value) {
                 if ($key > 0) {
-                    $innerJoinText .= " INNER JOIN " . $value . " ON " .
+                    $innerJoinText .= " LEFT JOIN " . $value . " ON " .
                         $relToArray[0] . ".id_" . $typeToArray[0] . " = " .
                         $value . ".id_" . $typeToArray[$key] . " ";
                 }
