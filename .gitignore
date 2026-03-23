@@ -1,3 +1,4 @@
 php_error_log
 .htaccess
 index.php
+models/connection.php
