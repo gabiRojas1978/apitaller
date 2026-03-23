@@ -2,8 +2,9 @@
 require_once "controllers/post.controller.php";
 require_once "models/connection.php";
 
-$table = explode("?", $routesArray[1])[0];
-
+$table = ! empty($routesArray)
+    ? (explode("?", end($routesArray))[0] ?? null)
+    : null;
 $response = new PostController();
 if (isset($_GET['register']) && $_GET['register'] == true) {    //registro de usuarios 
     $response->postRegister($table, $_POST);

@@ -1,7 +1,9 @@
 <?php
 
 require_once "controllers/delete.controller.php";
-$table = explode("?", $routesArray[1])[0];
+$table = ! empty($routesArray)
+    ? (explode("?", end($routesArray))[0] ?? null)
+    : null;
 
 $response = new DeleteController();
 if (isset($_GET['SE'])) {

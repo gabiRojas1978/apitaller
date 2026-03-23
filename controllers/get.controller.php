@@ -28,6 +28,14 @@ class GetController
         $return->fncResponse($response);
     }
 
+    static public function getRelDataFilterChain($fromAndJoins, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo, $groupBy = null)
+    {
+        $response = GetModel::getRelDataFilterChain($fromAndJoins, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo, $groupBy);
+
+        $return = new GetController();
+        $return->fncResponse($response);
+    }
+
     //peticion GET con filtro
     static public function getDataFilterGreater($table, $select, $orderBy, $orderMode, $startAt, $endAt, $limit = null, $greaterField = null, $greaterValue = null, $field = null, $search = null)
     {

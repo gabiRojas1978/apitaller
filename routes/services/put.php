@@ -3,7 +3,9 @@
 require_once "controllers/put.controller.php";
 require_once "models/connection.php";
 
-$table = explode("?", $routesArray[1])[0];
+$table = ! empty($routesArray)
+    ? (explode("?", end($routesArray))[0] ?? null)
+    : null;
 $set = $_GET['set'] ?? null;
 // Decodifica el JSON recibido
 $data = json_decode(file_get_contents("php://input"), true);

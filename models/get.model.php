@@ -113,6 +113,35 @@ class GetModel
         }
     }
 
+    //peticion GET con filtro tablas relacionadas
+    static public function getRelDataFilterChain($fromAndJoins, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo, $groupBy = null)
+    {
+
+
+        $sql = "SELECT $select FROM $fromAndJoins
+            WHERE $linkTo = :link";
+
+
+
+        //$sql = "SELECT $select FROM $relToArray[0] $innerJoinText where $linkToArray[0] = :$linkToArray[0] $linkToParams";
+        if ($orderBy != null) {
+            $sql .= " ORDER BY $orderBy $orderMode";
+        }
+        if ($startAt != null && $endAt != null) {
+            $sql .= " LIMIT $startAt, $endAt";
+        }
+        if ($groupBy) {
+            $sql .= " GROUP BY $groupBy";
+        }
+        //echo $sql;
+        $stmt = self::$link->prepare($sql);
+        $param = is_numeric($equalTo) ? PDO::PARAM_INT : PDO::PARAM_STR;
+        $stmt->bindParam(':link', $equalTo, $param);
+        $stmt->execute();
+        //print_r($stmt->fetchAll(PDO::FETCH_CLASS));
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
+
     //peticion GET con filtro
     static public function getDataFilterGreater($table, $select, $orderBy = null, $orderMode = null, $startAt = null, $endAt = null, $limit = null, $greaterField = null, $greaterValue = null, $field = null, $search = null)
     {

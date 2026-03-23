@@ -1,6 +1,8 @@
 <?php
 require_once "controllers/get.controller.php";
-$table = explode("?", $routesArray[1])[0] ?? null;
+$table = ! empty($routesArray)
+    ? (explode("?", end($routesArray))[0] ?? null)
+    : null;
 $select = $_GET["select"] ?? "*";
 $orderBy = $_GET["orderBy"] ?? null;
 $orderMode = $_GET["orderMode"] ?? null;
@@ -23,13 +25,9 @@ $having = $_GET['having'] ?? null;
 $havingValue = $_GET['havingvalue'] ?? null;
 $response = new GetController();
 
-// echo isset($_GET['rel']) . '<br>';
-// echo isset($_GET['type']) . '<br>';
-// echo $table . '<br>';
-// echo isset($_GET['linkTo']) . '<br>';
-// echo isset($_GET['equalTo']) . '<br>';
-// return;
-if (isset($_GET['linkTo']) && isset($_GET['equalTo']) && !isset($_GET['sum']) && !isset($_GET['rel']) && !isset($_GET['type'])) {
+// debug helpers removed
+
+if (isset($_GET['linkTo']) && isset($_GET['equalTo']) && !isset($_GET['sum']) && !isset($_GET['rel']) && !isset($_GET['type']) && !isset($_GET['fromAndJoins'])) {
     //peticion GET con filtro     
     $response->getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt, $limit, $greaterField, $greaterValue);
 } else if (!isset($_GET['linkTo']) && !isset($_GET['equalTo']) && !isset($_GET['sum']) && !isset($_GET['rel']) && !isset($_GET['type']) && isset($_GET['greaterField'])) {
@@ -80,6 +78,9 @@ if (isset($_GET['linkTo']) && isset($_GET['equalTo']) && !isset($_GET['sum']) &&
 } else if (isset($_GET['sum']) && isset($_GET['groupBy'])) {
     //peticion GET SUM    
     $response->getDataSum($table, $select, $sum, $groupBy,  $linkTo, $equalTo);
+} else if (isset($_GET['fromAndJoins'])) {
+    //peticion GET con join personalizado
+    $response->getRelDataFilterChain($_GET['fromAndJoins'], $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo, $groupBy);
 } else {
     //echo 'por defecto';
     //peticion GET sin filtro    
