@@ -76,17 +76,30 @@ class PostController
     public function fncResponse($response)
     {
         $response = $response ?? null;
-        if (!empty($response)) {
+
+        if (!empty($response) && isset($response['lastId']) && $response['lastId'] > 0) {
+            // Éxito: extraer lastId y formatear correctamente
             $json = array(
                 'status' => 200,
-                'results' => $response
+                'results' => array(
+                    'lastId' => (int)$response['lastId'],
+                    'message' => $response['result'] ?? 'Operación exitosa'
+                ),
+                'data' => $response['data'] ?? null
             );
         } else {
+            // Error
             $json = array(
-                'status' => 404,
-                'results' => $response
+                'status' => 400,
+                'results' => array(
+                    'lastId' => 0,
+                    'message' => $response['error'] ?? 'Error en la operación'
+                ),
+                'error' => $response['error'] ?? 'Unknown error',
+                'data' => $response['data'] ?? null
             );
         }
+
         http_response_code($json['status']);
         echo json_encode($json);
     }
