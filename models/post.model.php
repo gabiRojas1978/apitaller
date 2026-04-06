@@ -28,7 +28,8 @@ class PostModel
             //$stmt->bindParam(":" . $key, $data[$key], PDO::PARAM_STR);
             $stmt->bindValue(":" . $key, $value, PDO::PARAM_STR);
         }
-        if ($stmt->execute()) {
+        $result = $stmt->execute();
+        if ($result) {
             try {
                 $lastId = self::$link->lastInsertId();
             } catch (Exception $e) {
@@ -37,7 +38,7 @@ class PostModel
             $response = array(
                 "lastId" => $lastId,
                 "result" => "Carga exitosa",
-                "data" => $stmt->errorInfo()
+                "data" => $result
             );
             return $response;
         } else {
@@ -46,7 +47,7 @@ class PostModel
                 "lastId" => 0,
                 "result" => "Error en la carga",
                 "error" => $errorInfo[2], // Mensaje de error de la base de datos
-                "data" => $data
+                "data" => $result
             );
         }
     }
