@@ -37,7 +37,7 @@ class PostModel
             $response = array(
                 "lastId" => $lastId,
                 "result" => "Carga exitosa",
-                "data" => $data
+                "data" => $stmt->errorInfo()
             );
             return $response;
         } else {
