@@ -116,14 +116,13 @@ class GetModel
     //peticion GET con filtro tablas relacionadas
     static public function getRelDataFilterChain($fromAndJoins, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $equalTo, $groupBy = null)
     {
+        $sql = "SELECT $select FROM $fromAndJoins";
 
+        // Solo agregar WHERE si linkTo y equalTo están definidos
+        if ($linkTo != null && $equalTo != null) {
+            $sql .= " WHERE $linkTo = :link";
+        }
 
-        $sql = "SELECT $select FROM $fromAndJoins
-            WHERE $linkTo = :link";
-
-
-
-        //$sql = "SELECT $select FROM $relToArray[0] $innerJoinText where $linkToArray[0] = :$linkToArray[0] $linkToParams";
         if ($orderBy != null) {
             $sql .= " ORDER BY $orderBy $orderMode";
         }
@@ -133,12 +132,16 @@ class GetModel
         if ($groupBy) {
             $sql .= " GROUP BY $groupBy";
         }
-        //echo $sql;
+
         $stmt = self::$link->prepare($sql);
-        $param = is_numeric($equalTo) ? PDO::PARAM_INT : PDO::PARAM_STR;
-        $stmt->bindParam(':link', $equalTo, $param);
+
+        // Solo bindear si hay WHERE
+        if ($linkTo != null && $equalTo != null) {
+            $param = is_numeric($equalTo) ? PDO::PARAM_INT : PDO::PARAM_STR;
+            $stmt->bindParam(':link', $equalTo, $param);
+        }
+
         $stmt->execute();
-        //print_r($stmt->fetchAll(PDO::FETCH_CLASS));
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
@@ -240,7 +243,7 @@ class GetModel
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
     //peticion GET busqueda con filtro tablas relacionadas
-    static public function getRelDatasearch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $search)
+    static public function getRelDatasearch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $search, $having, $havingValue)
     {
         //filtros
         $linkToArray = explode(',', $linkTo);
@@ -267,7 +270,6 @@ class GetModel
                 }
             }
 
-
             $sql = "SELECT $select FROM $relToArray[0] $innerJoinText where $linkToArray[0] like '%$searchToArray[0]%' $linkToParams ";
             if ($orderBy != null) {
                 $sql .= " ORDER BY $orderBy $orderMode";
@@ -275,7 +277,9 @@ class GetModel
             if ($startAt != null && $endAt != null) {
                 $sql .= " LIMIT $startAt, $endAt";
             }
-
+            if ($having) {
+                $sql .= " HAVING $having > '$havingValue' ";
+            }
             //echo $sql;
             $stmt = self::$link->prepare($sql);
             foreach ($linkToArray as $key => $value) {
@@ -503,9 +507,9 @@ class GetModel
 
     //sum con relations
     static public function getRelDataGroup(
-        $rel,           // Ej: "lotes,productos"
-        $type,          // Ej: "lote,producto"
-        $select,        // Ej: "lotes.codigo_lote, productos.nombre_producto, SUM(lotes.cantidad_lote) AS total_cantidad"
+        $rel,
+        $type,
+        $select,
         $groupBy,
         $field,
         $search,

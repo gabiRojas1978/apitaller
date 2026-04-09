@@ -50,7 +50,7 @@ if (isset($_GET['linkTo']) && isset($_GET['equalTo']) && !isset($_GET['sum']) &&
 } else if (isset($_GET['rel']) && isset($_GET['type']) && !isset($_GET['field']) && $table == "relations" && isset($_GET['linkTo']) && isset($_GET['search']) && !isset($_GET['on'])) {
     //peticion GET buscador relacionadas sin filtro
     //echo '4';
-    $response->getRelDatasearch($_GET['rel'], $_GET['type'], $select, $orderBy, $orderMode, $startAt, $endAt, $_GET['linkTo'], $_GET['search']);
+    $response->getRelDatasearch($_GET['rel'], $_GET['type'], $select, $orderBy, $orderMode, $startAt, $endAt, $_GET['linkTo'], $_GET['search'], $having, $havingValue);
 } else if (isset($_GET['rel']) && isset($_GET['on']) && $table == "relations") {
     //peticion GET buscador relacionadas con sum
     // echo '5';

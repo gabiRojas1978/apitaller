@@ -60,9 +60,9 @@ class GetController
     }
 
     //peticion GET buscador relacionadas sin filtro
-    static public function getRelDatasearch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $search)
+    static public function getRelDatasearch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $search, $having = null, $havingValue = null)
     {
-        $response = GetModel::getRelDatasearch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $search);
+        $response = GetModel::getRelDatasearch($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt, $linkTo, $search, $having, $havingValue);
 
         $return = new GetController();
         $return->fncResponse($response);
@@ -175,7 +175,8 @@ class GetController
             $json = array(
                 'status' => 404,
                 'results' => 'Not Found',
-                "Method" => "POST"
+                "Method" => "POST",
+                'response' => $response
             );
         }
         echo json_encode($json, http_response_code($json['status']));
