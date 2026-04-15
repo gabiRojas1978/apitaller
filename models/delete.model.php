@@ -10,9 +10,9 @@ class DeleteModel
     {
         self::$link = $connection;
     }
+
     static public function deleteDataGeneric($table, $id, $nameId)
     {
-
         $sql = "DELETE from $table WHERE $nameId = :$nameId";
 
         //$link = Connection::connect();
@@ -28,6 +28,7 @@ class DeleteModel
             return self::$link->errorInfo();
         }
     }
+
     static public function deleteData($table, $id, $idSE, $nameId, $nameIdSE)
     {
 
@@ -47,6 +48,7 @@ class DeleteModel
             return self::$link->errorInfo();
         }
     }
+
     static public function deleteDataSuministro($table, $idSuministro)
     {
         $sql = "DELETE from $table WHERE id_suministro = :id_suministro";
@@ -69,6 +71,7 @@ class DeleteModel
             );
         }
     }
+
     static public function deleteDataLote($table, $idLote)
     {
         $sql = "DELETE from $table WHERE id_lote = $idLote";
